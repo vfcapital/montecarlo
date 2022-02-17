@@ -1,10 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-plt.title("Monte-Carlo-Simulation")
-plt.ylabel('[EUR]')
-plt.xlabel('[Tage]')
-plt.grid()
+f = plt.figure()
+f.set_figwidth(16)
+f.set_figheight(8)
+
+x_ticks = [0, 200, 560, 920, 1280]
+x_labels = ['', 'Jahr 1', 'Jahr 2', 'Jahr 3', 'Jahr 4']
 
 #Input
 Number_of_years = 4
@@ -12,7 +14,7 @@ periods_per_year = 360
 number_of_paths = 10
 price_start = 100
 risk_free_rate = 0
-volatility = 0.15
+volatility = 0.17
 dividend_yield = 0
 path_matrix = np.empty((number_of_paths,Number_of_years*periods_per_year))
 
@@ -30,5 +32,12 @@ for path in range(number_of_paths):
 
 #Output
 for path in range(number_of_paths):
-    plt.plot(path_matrix[path,:])
+    plt.plot(path_matrix[path,:], linewidth = 0.9)
+
+plt.rc('font', size=17)
+plt.style.use('seaborn-whitegrid')
+plt.ylim((0, 200))
+plt.xlim((0,1500))
+plt.xticks(ticks = x_ticks, labels = x_labels)
+plt.grid(axis ="x")
 plt.show()
