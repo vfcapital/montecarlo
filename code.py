@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Set inpute variables
+# Set input variables
 number_of_years = 4
 periods_per_year = 360
 number_of_paths = 10
